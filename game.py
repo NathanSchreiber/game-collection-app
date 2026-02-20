@@ -1,22 +1,36 @@
 import uuid
 
 class Game:
-    def __init__(self, title, platform, playtime=0.0):
+    def __init__(self, title, platform, finished, rating=None, playtime=0.0):
         self.title = title
         self.platform = platform
+        self.finished = finished
+        self.rating = rating
         self.playtime = playtime
         self.id = self.create_id()
 
     def create_id(self):
         return uuid.uuid4()
     
+    def log_playtime(self, value):
+        if value > 0:
+            self.playtime += value
+        else:
+            print("Invalid input")
+    
+    def mark_finished(self):
+        self.finished = True
+    
     def __repr__(self):
-        return f"Game(title={self.title!r}, platform={self.platform!r}, playtime={self.playtime!r} hrs, id={self.id!r})"
+        return f"Game(title={self.title!r}, platform={self.platform!r}, finished={self.finished!r}, rating={self.rating!r} playtime={self.playtime!r}, id={self.id!r})"
     
     def __str__(self):
-        return f"Title: {self.title}, Platform: {self.platform}, Playtime: {self.playtime} hrs, ID: {self.id}"
+        if self.rating == None:
+            return f"Title: {self.title}, Platform: {self.platform}, Finished: {self.finished}, Playtime: {self.playtime} hrs, ID: {self.id}"
+        else:
+            return f"Title: {self.title}, Platform: {self.platform}, Finished: {self.finished}, Rating: {self.rating}/10, Playtime: {self.playtime} hrs, ID: {self.id}"
 
-zelda = Game("Zelda", "Switch", 24.5)
+zelda = Game("Zelda", "Switch", False, 8, 24.5)
 
 print(zelda)
-print(repr(zelda))
+# print(repr(zelda))
