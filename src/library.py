@@ -1,10 +1,13 @@
-from game import Game
+from .game import Game
 
 class Library:
     def __init__(self):
         self.games = {}
 
     def add_game(self, new_game):
+        if new_game.title == "":
+            raise ValueError("Entered games must have a title")
+
         for game in self.games.values():
             if game.title.lower() == new_game.title.lower():
                 raise ValueError("This game already exists in your collection")
@@ -40,13 +43,12 @@ class Library:
         return str(print_game_list)
 
 
-# library = Library()
+library = Library()
 
-# library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
-# library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
-# library.add_game(Game("Baldur's Gate 3", "Steam", True, 10, 180))
+library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
+library.add_game(Game("Baldur's Gate 3", "Steam", True, 10, 180))
 
-# print(library)
+print(library)
 
-# print(library.remove_game("the outer worlds"))
-# print([library])
+print(library.remove_game("the outer worlds"))
+print([library])

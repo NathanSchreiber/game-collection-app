@@ -1,5 +1,5 @@
-from library import Library
-from game import Game
+from src.library import Library
+from src.game import Game
 import pytest
 
 
@@ -20,6 +20,10 @@ class TestLibrary:
         assert stored.rating == None
         assert stored.playtime == 43
 
+        with pytest.raises(ValueError):
+            fake_game = Game("", "Steam", True, 10, 180)
+            self.library.add_game(fake_game)
+
     def test_add_duplicate_user(self):
         game1 = Game("The Outer Worlds", "Steam", True, None, 43)
         self.library.add_game(game1)
@@ -28,20 +32,16 @@ class TestLibrary:
             self.library.add_game(game1)
 
 
-    # def test_remove(self):
-    #     g1 = Game("The Outer Worlds", "Steam", True, None, 43)
-    #     g2 = Game("Baldur's Gate 3", "Steam", True, 10, 180)
+    def test_remove(self):
+        game1 = Game("The Outer Worlds", "Steam", True, None, 43)
+        game2 = Game("Baldur's Gate 3", "Steam", True, 10, 180)
 
-    #     self.library.add_game(g1)
-    #     self.library.add_game(g2)
+        self.library.add_game(game1)
+        self.library.add_game(game2)
 
-    #     assert len(self.library.games) == 2
+        assert len(self.library.games) == 2
 
-    #     self.library.remove_game("The Outer Worlds")
-    #     # Broken ->
-    #     removed = self.library.games[g1.id]
+        self.library.remove_game("The Outer Worlds")
 
-    #     print(removed.title)
-
-    #     self.assertNotIn(removed)
-    #     # <- Broken
+        assert len(self.library.games) == 1
+        assert self.library.games.get(game1.id) == None
