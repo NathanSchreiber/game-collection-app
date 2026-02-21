@@ -30,7 +30,7 @@ class Game:
         else:
             return f"Title: {self.title}, Platform: {self.platform}, Finished: {self.finished}, Rating: {self.rating}/10, Playtime: {self.playtime} hrs, ID: {self.id}"
 
-zelda = Game("Zelda", "Switch", False, 8, 24.5)
+# zelda = Game("Zelda", "Switch", False, 8, 24.5)
 
 # print(zelda)
 # print(repr(zelda))

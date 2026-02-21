@@ -5,6 +5,10 @@ class Library:
         self.games = {}
 
     def add_game(self, new_game):
+        for game in self.games.values():
+            if game.title.lower() == new_game.title.lower():
+                raise ValueError("This game already exists in your collection")
+            
         self.games[new_game.id] = new_game
         return "Game added!"
 
@@ -36,12 +40,13 @@ class Library:
         return str(print_game_list)
 
 
-library = Library()
+# library = Library()
 
-library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
-library.add_game(Game("Baldur's Gate 3", "Steam", True, 10, 180))
+# library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
+# library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
+# library.add_game(Game("Baldur's Gate 3", "Steam", True, 10, 180))
 
-print(library)
+# print(library)
 
-print(library.remove_game("the outer worlds"))
-print(library)
+# print(library.remove_game("the outer worlds"))
+# print([library])
