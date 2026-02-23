@@ -41,14 +41,3 @@ class Library:
                 print_game = f"Title: {entry.title}, Platform: {entry.platform}, Finished: {entry.finished}, Rating: {entry.rating}/10, Playtime: {entry.playtime} hrs, ID: {entry.id}"
                 print_game_list += f"{print_game}\n"
         return str(print_game_list)
-
-
-library = Library()
-
-library.add_game(Game("The Outer Worlds", "Steam", True, None, 43))
-library.add_game(Game("Baldur's Gate 3", "Steam", True, 10, 180))
-
-print(library)
-
-print(library.remove_game("the outer worlds"))
-print([library])

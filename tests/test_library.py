@@ -19,6 +19,8 @@ class TestLibrary:
         assert stored.finished == True
         assert stored.rating == None
         assert stored.playtime == 43
+        assert stored.id != None
+        assert stored.id != ""
 
         with pytest.raises(ValueError):
             fake_game = Game("", "Steam", True, 10, 180)

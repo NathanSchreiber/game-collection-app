@@ -12,6 +12,18 @@ class Game:
     def create_id(self):
         return uuid.uuid4()
     
+    #For JSON formatting
+    def to_dict(self):
+        new_dict = {
+            "id": str(self.id),
+            "title": self.title,
+            "platform": self.platform,
+            "finished": self.finished,
+            "rating": self.rating,
+            "playtime": self.playtime
+        }
+        return new_dict
+    
     def log_playtime(self, value):
         if value > 0:
             self.playtime += value
