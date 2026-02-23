@@ -4,6 +4,9 @@ class Library:
     def __init__(self):
         self.games = {}
 
+    def load_collection(self, saved_data):
+        self.games = saved_data
+
     def add_game(self, new_game):
         if new_game.title == "":
             raise ValueError("Entered games must have a title")

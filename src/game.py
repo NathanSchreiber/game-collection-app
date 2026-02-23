@@ -1,7 +1,7 @@
 import uuid
 
 class Game:
-    def __init__(self, title, platform, finished, rating=None, playtime=0.0):
+    def __init__(self, title, platform, finished, rating=None, playtime=0.0, id=None):
         self.title = title
         self.platform = platform
         self.finished = finished
@@ -10,7 +10,7 @@ class Game:
         self.id = self.create_id()
 
     def create_id(self):
-        return uuid.uuid4()
+        return str(uuid.uuid4())
     
     #For JSON formatting
     def to_dict(self):
