@@ -3,6 +3,7 @@ from .game import Game
 class Library:
     def __init__(self):
         self.games = {}
+        self.sorted_data = {}
 
     def load_collection(self, saved_data):
         self.games = saved_data
@@ -29,6 +30,17 @@ class Library:
                 continue
         if in_list == False:
             return "That game doesn't exist in your library"
+        
+    def sort_alpha(self, data):
+        sorted_data = sorted(data.items(), key=lambda item: item[1].title)
+        self.sorted_data = sorted_data
+        return self.sorted_data
+    
+    # def sort_platform(self, data):
+    #     sorted_data = sorted(data.items(), key=lambda item: item[1].platform)
+    #     self.sorted_data = sorted_data
+    #     return self.sorted_data
+
 
     def __repr__(self):
         return str(self.games)
