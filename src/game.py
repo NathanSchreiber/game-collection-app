@@ -24,12 +24,6 @@ class Game:
         }
         return new_dict
     
-    def log_playtime(self, value):
-        if value > 0:
-            self.playtime += value
-        else:
-            print("Invalid input")
-    
     def mark_finished(self):
         self.finished = True
     # Dev formatting for printing

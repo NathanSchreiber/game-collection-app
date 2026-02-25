@@ -26,10 +26,4 @@ class Storage:
             for game in self.library.games.values():
                 data.append(game.to_dict())
             json.dump(data, json_file, indent=4)
-            print("Game added!")
-
-    def search_data(self):
-        pass
-
-    def edit_data(self):
-        pass
+            return "Success"

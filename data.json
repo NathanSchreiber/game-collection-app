@@ -1,0 +1,42 @@
+[
+    {
+        "id": "f681eacf-d210-4ff0-a86b-86a26c73a965",
+        "title": "Super Mario Odyssey",
+        "platform": "Switch",
+        "finished": true,
+        "rating": 9.0,
+        "playtime": 55.0
+    },
+    {
+        "id": "f6f9e363-8ad8-4a16-9f10-631f68f313e3",
+        "title": "Baldur's Gate 3",
+        "platform": "Steam",
+        "finished": false,
+        "rating": null,
+        "playtime": 49.0
+    },
+    {
+        "id": "814ec18c-3abc-4a3c-b09e-a529e05b3a25",
+        "title": "The Elder Scrolls V: Skyrim",
+        "platform": "Steam",
+        "finished": true,
+        "rating": 10.0,
+        "playtime": 100.0
+    },
+    {
+        "id": "cc777de4-f084-49d3-bc44-cfbe5b30990e",
+        "title": "Balatro",
+        "platform": "Steam",
+        "finished": false,
+        "rating": null,
+        "playtime": 18.0
+    },
+    {
+        "id": "6e65f4a5-f6bf-41ce-be61-509f928179b1",
+        "title": "God of War Ragnarok",
+        "platform": "PS5",
+        "finished": false,
+        "rating": null,
+        "playtime": 32.0
+    }
+]

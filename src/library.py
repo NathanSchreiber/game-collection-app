@@ -31,16 +31,23 @@ class Library:
         if in_list == False:
             return "That game doesn't exist in your library"
         
+    def edit_library(self, title, sect, new_data):
+        in_list = False
+        for _, game in self.games.items():
+            if game.title.lower() == title.lower():
+                in_list = True
+                setattr(game, sect, new_data)
+                return "Success"
+            else:
+                continue
+        if in_list == False:
+            return "That game doesn't exist in your library"
+        
+        
     def sort_alpha(self, data):
         sorted_data = sorted(data.items(), key=lambda item: item[1].title)
         self.sorted_data = sorted_data
         return self.sorted_data
-    
-    # def sort_platform(self, data):
-    #     sorted_data = sorted(data.items(), key=lambda item: item[1].platform)
-    #     self.sorted_data = sorted_data
-    #     return self.sorted_data
-
 
     def __repr__(self):
         return str(self.games)
