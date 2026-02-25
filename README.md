@@ -41,6 +41,9 @@ The application supports the following functionality:
    
   ```bash
    python3 -m venv env
+  ```
+
+  ```bash
    source env/bin/activate
   ```
 
