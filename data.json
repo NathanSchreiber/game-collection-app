@@ -1,6 +1,6 @@
 [
     {
-        "id": "f681eacf-d210-4ff0-a86b-86a26c73a965",
+        "id": "6ae39d80-abbd-4b47-a711-a64c0d897d9f",
         "title": "Super Mario Odyssey",
         "platform": "Switch",
         "finished": true,
@@ -8,7 +8,7 @@
         "playtime": 55.0
     },
     {
-        "id": "f6f9e363-8ad8-4a16-9f10-631f68f313e3",
+        "id": "7e7b0d84-df6c-498f-922e-65f449c74113",
         "title": "Baldur's Gate 3",
         "platform": "Steam",
         "finished": false,
@@ -16,7 +16,7 @@
         "playtime": 49.0
     },
     {
-        "id": "814ec18c-3abc-4a3c-b09e-a529e05b3a25",
+        "id": "0fbc7d96-05ef-40d9-912a-5906798eca77",
         "title": "The Elder Scrolls V: Skyrim",
         "platform": "Steam",
         "finished": true,
@@ -24,7 +24,7 @@
         "playtime": 100.0
     },
     {
-        "id": "cc777de4-f084-49d3-bc44-cfbe5b30990e",
+        "id": "84723bff-16e7-4277-967e-8d8a55e752a2",
         "title": "Balatro",
         "platform": "Steam",
         "finished": false,
@@ -32,7 +32,7 @@
         "playtime": 18.0
     },
     {
-        "id": "6e65f4a5-f6bf-41ce-be61-509f928179b1",
+        "id": "27c77a56-d0f8-4090-b939-dc0448fc1008",
         "title": "God of War Ragnarok",
         "platform": "PS5",
         "finished": false,

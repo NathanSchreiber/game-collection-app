@@ -204,7 +204,7 @@ class Edit:
                     library.edit_library(game.title, edit_sect, new_data)
                     check_success = storage.write_data()
                     if check_success == "Success":
-                        print("Game Updated!")
+                        print("Game updated!")
                     break
                 else:
                     continue
@@ -243,7 +243,7 @@ class Remove:
                     library.remove_game(remove_title)
                     check_success = storage.write_data()
                     if check_success == "Success":
-                        print("Game Updated!")
+                        print("Game removed!")
                     else:
                         print("Error")
                     break
@@ -270,7 +270,7 @@ def choose_next():
 
 
 def choose_action():
-    response1 = str(input("Add game, search game, edit game, or remove a game? ")).lower()
+    response1 = str(input("Add, search, edit, or remove? ")).lower()
     if response1 != "add" and response1 != "search" and response1 != "edit" and response1 != "remove":
         print("That input was invalid, please try again.")
         return choose_action()
