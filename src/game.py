@@ -7,7 +7,7 @@ class Game:
         self.finished = finished
         self.rating = rating
         self.playtime = playtime
-        self.id = self.create_id()
+        self.id = id if id is not None else self.create_id()
 
     def create_id(self):
         return str(uuid.uuid4())

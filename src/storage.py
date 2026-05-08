@@ -1,6 +1,7 @@
 from .game import Game
 import json
 from pathlib import Path
+import sqlite3
 
 class Storage:
     def __init__(self, library, file_path="data.json"):
@@ -27,3 +28,19 @@ class Storage:
                 data.append(game.to_dict())
             json.dump(data, json_file, indent=4)
             return "Success"
+        
+    def add_to_db(self):
+        conn = sqlite3.connect("games.db")
+        cursor = conn.cursor()
+
+        query = """
+                    INSERT INTO games (id, title, platform, finished, rating, playtime)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                    """
+
+        for game in self.library.games.values():
+            print(game.title)
+            cursor.execute(query, (game.id, game.title, game.platform, game.finished, game.rating, game.playtime))
+
+        conn.commit()
+        conn.close()

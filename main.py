@@ -287,6 +287,7 @@ def choose_action():
             new_edit = Edit()
             new_edit.add_sort_tools()
             new_edit.choose_game()
+            choose_next()
         elif response1 == "remove":
             remove = Remove()
             remove.add_sort_tools()
