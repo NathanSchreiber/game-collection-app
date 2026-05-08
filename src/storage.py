@@ -28,19 +28,34 @@ class Storage:
                 data.append(game.to_dict())
             json.dump(data, json_file, indent=4)
             return "Success"
+
+    # Below is logic for database use
+    def game_exists(self, new_game):
+        conn = sqlite3.connect("games.db")
+        cursor = conn.cursor()
+        query = "SELECT 1 FROM games WHERE title = ?"
+
+        cursor.execute(query, (new_game.title,))
+
+        exists_result = cursor.fetchone()
+        conn.close()
         
-    def add_to_db(self):
+        if exists_result == None:
+            return False
+        else:
+            return True
+
+
+    def add_to_db(self, game):
         conn = sqlite3.connect("games.db")
         cursor = conn.cursor()
 
         query = """
-                    INSERT INTO games (id, title, platform, finished, rating, playtime)
-                    VALUES (?, ?, ?, ?, ?, ?)
-                    """
+                INSERT INTO games (id, title, platform, finished, rating, playtime)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """
 
-        for game in self.library.games.values():
-            print(game.title)
-            cursor.execute(query, (game.id, game.title, game.platform, game.finished, game.rating, game.playtime))
+        cursor.execute(query, (game.id, game.title, game.platform, game.finished, game.rating, game.playtime))
 
         conn.commit()
         conn.close()

@@ -72,12 +72,15 @@ class AddGame:
             if finished == True:
                 rating = self.choose_rating()
             playtime = self.choose_playtime()
-        library.add_game(Game(title, platform, finished, rating, playtime))
-        success_test = storage.write_data()
+        
+        success_test = library.add_game(Game(title, platform, finished, rating, playtime))
+        # success_test = storage.write_data()
         if success_test == "Success":
-            print("Game added!")
+            print("\nGame added!")
+        elif success_test == "Exists":
+            print("\nThis game already exists in your library")
         else:
-            print("Error")
+            print("\nThere was an error adding this game")
 
 class Search:
     def __init__(self):

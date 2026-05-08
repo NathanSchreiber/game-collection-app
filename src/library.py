@@ -1,4 +1,5 @@
 from .game import Game
+from .storage import Storage
 
 class Library:
     def __init__(self):
@@ -9,15 +10,18 @@ class Library:
         self.games = saved_data
 
     def add_game(self, new_game):
-        if new_game.title == "":
-            raise ValueError("Entered games must have a title")
+        storage = Storage(new_game)
+        exists_result = storage.game_exists(new_game)
 
-        for game in self.games.values():
-            if game.title.lower() == new_game.title.lower():
-                raise ValueError("This game already exists in your collection")
-            
-        self.games[new_game.id] = new_game
-        return "Game added!"
+        if exists_result == True:
+            return "Exists"
+        elif exists_result == False:
+            storage.add_to_db(new_game)
+            success_check = storage.game_exists(new_game)
+            if success_check == True:
+                return "Success"
+            else:
+                raise ValueError("An error occurred while adding this game")
 
     def remove_game(self, title):
         in_list = False
